@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Paul Giraldo | Portfolio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-brand: #251964;
+            --primary-dark: #160e40;
+            --primary-light: #3e2ca6;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-brand) 50%, var(--primary-light) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        /* Profile Image Styles */
+        .profile-img {
+            max-width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(37, 25, 100, 0.2); /* Sombra con tono acorde al color principal */
+        }
+
+        /* Badges & Pills */
+        .skill-badge {
+            background-color: #e9ecef;
+            color: var(--primary-brand);
+            font-weight: 600;
+            padding: 8px 16px;
+            margin: 4px;
+            border-radius: 30px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            background-color: var(--primary-brand);
+            color: white;
+        }
+
+        /* Cards */
+        .project-card {
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(37, 25, 100, 0.15);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-brand);
+            margin-bottom: 15px;
+        }
+
+        /* Timeline / Experience */
+        .experience-item {
+            border-left: 3px solid var(--primary-brand);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background-color: var(--primary-brand);
+        }
+
+        /* Utilidades extra para el color */
+        .text-brand { color: var(--primary-brand) !important; }
+        .bg-brand { background-color: var(--primary-brand) !important; }
+        .btn-brand { 
+            background-color: var(--primary-brand); 
+            color: white; 
+            border: none;
+        }
+        .btn-brand:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm" style="background-color: var(--primary-dark) !important;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">JPG</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">Jean Paul Giraldo</h1>
+            <h2 class="h4 fw-light mb-4 text-light opacity-75">
+                Full Stack Developer | UI/UX Designer | Data Quality & BI Specialist
+            </h2>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="#projects" class="btn btn-outline-light btn-lg px-4 rounded-pill">View Work</a>
+                <a href="#contact" class="btn btn-light btn-lg px-4 rounded-pill text-brand fw-bold">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                    <img src="image_0.png" alt="Jean Paul Giraldo Profile" class="img-fluid rounded-circle profile-img">
+                </div>
+
+                <div class="col-lg-8">
+                    <h3 class="fw-bold mb-4">Bridging the Gap Between Code, Design, and Data.</h3>
+                    <p class="lead text-muted">
+                        Undergraduate Software Engineering student at Institución Universitaria Pascual Bravo.
+                    </p>
+                    <p>
+                        I build robust digital experiences by combining development, UI/UX design, and strategic e-commerce branding. I am specializing in Data Quality within Business Intelligence (BI) and Data Science, utilizing advanced SQL, data infrastructure, and ETL/ELT pipelines. 
+                    </p>
+                    <p>
+                        Beyond software and data architecture, my technological foundation is strengthened by deep interests in cloud architecture, generative AI, cybersecurity (network defense, VPNs, firewalls), and PC hardware troubleshooting.
+                    </p>
+                    
+                    <div class="card shadow-sm border-0 mt-4 border-start border-4" style="border-color: var(--primary-brand) !important;">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3"><i class="fas fa-graduation-cap text-brand me-2"></i> Current Focus</h5>
+                            <ul class="list-unstyled mb-0 row row-cols-1 row-cols-md-2">
+                                <li class="col mb-2"><i class="fas fa-check text-brand me-2"></i> Cloud Architecture & Kubernetes</li>
+                                <li class="col mb-2"><i class="fas fa-check text-brand me-2"></i> Business Intelligence-Marketing</li>
+                                <li class="col mb-2"><i class="fas fa-check text-brand me-2"></i> Generative AI Integration</li>
+                                <li class="col"><i class="fas fa-check text-brand me-2"></i> Data Science Specialization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5 bg-white">
+        <div class="container py-4">
+            <h2 class="fw-bold text-center mb-5">Technical Arsenal</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="mb-3">Languages & Frameworks</h5>
+                    <div>
+                        <span class="skill-badge">C#</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Node.js</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Data & Infrastructure</h5>
+                    <div>
+                        <span class="skill-badge">Advanced SQL</span>
+                        <span class="skill-badge">ETL / ELT</span>
+                        <span class="skill-badge">Cloud Computing</span>
+                        <span class="skill-badge">Kubernetes</span>
+                        <span class="skill-badge">Arduino</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Design & Strategy</h5>
+                    <div>
+                        <span class="skill-badge">UI/UX Design</span>
+                        <span class="skill-badge">Generative AI</span>
+                        <span class="skill-badge">E-commerce Strategy</span>
+                        <span class="skill-badge">Cybersecurity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5 bg-light">
+        <div class="container py-4">
+            <h2 class="fw-bold text-center mb-5">Featured Projects</h2>
+            <div class="row g-4">
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card project-card p-4 border-bottom border-4" style="border-color: var(--primary-brand) !important;">
+                        <i class="fas fa-database card-icon"></i>
+                        <h5 class="fw-bold">Alumni DB Management</h5>
+                        <p class="text-muted small">BD_GestiondeengresadosIUPB_2</p>
+                        <p class="small">Architected and populated a comprehensive relational SQL database to streamline graduate data management for the university.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card project-card p-4 border-bottom border-4" style="border-color: var(--primary-brand) !important;">
+                        <i class="fas fa-chart-line card-icon"></i>
+                        <h5 class="fw-bold">Automotive Marketing</h5>
+                        <p class="text-muted small">Digital Campaign & Analytics</p>
+                        <p class="small">Managed a high-converting campaign achieving 70,000 views, 640 engagements, and 25 direct leads resulting in new vehicle sales.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card project-card p-4 border-bottom border-4" style="border-color: var(--primary-brand) !important;">
+                        <i class="fas fa-leaf card-icon"></i>
+                        <h5 class="fw-bold">Zero Waste App</h5>
+                        <p class="text-muted small">UI/UX & Design Sprint</p>
+                        <p class="small">Developed a comprehensive business plan, SWOT analysis, and user testing strategy for a sustainable natural soap product line.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card project-card p-4 border-bottom border-4" style="border-color: var(--primary-brand) !important;">
+                        <i class="fas fa-window-maximize card-icon"></i>
+                        <h5 class="fw-bold">C# CRUD Application</h5>
+                        <p class="text-muted small">Software Engineering</p>
+                        <p class="small">Built a fully functional Windows Forms desktop application with a graphical interface and integrated backend data management.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="fw-bold mb-5">Professional Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h5 class="fw-bold mb-1">Operations Manager & Visual Designer</h5>
+                        <h6 class="text-brand mb-3">Drews Male</h6>
+                        <p class="text-muted">Managed core operations while designing visual brand assets to optimize the customer experience and drive brand consistency.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h5 class="fw-bold mb-1">E-commerce Specialist & Brand Strategist</h5>
+                        <h6 class="text-brand mb-3">Luxejoyería18k (Freelance)</h6>
+                        <p class="text-muted">Led e-commerce strategies, improving online storefronts and brand positioning to increase conversion rates and digital footprint.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-5">Certifications</h2>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <ul class="list-group list-group-flush border-top border-bottom">
+                                <li class="list-group-item bg-transparent">Cloud Fundamentals for Startups (AWS)</li>
+                                <li class="list-group-item bg-transparent">Advanced Generative AI (AWS)</li>
+                                <li class="list-group-item bg-transparent">Intro to Generative AI (Google)</li>
+                                <li class="list-group-item bg-transparent">Cloud Computing (Google)</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-group list-group-flush border-top border-bottom">
+                                <li class="list-group-item bg-transparent">Intro to AI & LLMs (IBM)</li>
+                                <li class="list-group-item bg-transparent">NLP & Computer Vision (IBM)</li>
+                                <li class="list-group-item bg-transparent">MKT-Business Intelligence</li>
+                                <li class="list-group-item bg-transparent">Web Dev & Digital Marketing (SENA)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-5 text-center">
+        <div class="container py-4">
+            <h2 class="fw-bold mb-4">Let's Connect</h2>
+            <p class="mb-4 text-light opacity-75">Currently open to opportunities in Software Engineering, Data Science, and UI/UX design.</p>
+            <div class="mb-4">
+                <a href="#" class="btn btn-outline-light rounded-circle me-2" style="width: 45px; height: 45px; line-height: 33px;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="btn btn-outline-light rounded-circle me-2" style="width: 45px; height: 45px; line-height: 33px;"><i class="fab fa-github"></i></a>
+                <a href="#" class="btn btn-outline-light rounded-circle" style="width: 45px; height: 45px; line-height: 33px;"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="small text-light opacity-50 mb-0">&copy; 2026 Jean Paul Giraldo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
