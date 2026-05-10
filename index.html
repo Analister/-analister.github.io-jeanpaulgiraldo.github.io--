@@ -543,20 +543,28 @@
                 }
             });
 
-            // 4. Intersection Observer (Animación suave de revelado en Cascada)
-            function reveal() {
-                var reveals = document.querySelectorAll(".reveal");
-                for (var i = 0; i < reveals.length; i++) {
-                    var windowHeight = window.innerHeight;
-                    var elementTop = reveals[i].getBoundingClientRect().top;
-                    var elementVisible = 50; 
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveals[i].classList.add("active");
+            // 4. Intersection Observer (Animación suave y OPTIMIZADA - Nivel Senior)
+            const revealElements = document.querySelectorAll(".reveal");
+            
+            const revealOptions = {
+                threshold: 0.15, // Se activa cuando el 15% del elemento ya es visible
+                rootMargin: "0px 0px -50px 0px" // Margen de activación
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        // Importante: dejamos de observar el elemento una vez que ya apareció
+                        // Esto libera muchísima memoria RAM del navegador
+                        observer.unobserve(entry.target); 
                     }
-                }
-            }
-            window.addEventListener("scroll", reveal);
-            reveal(); // Ejecutar al cargar la página
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
 
             // 5. Cerrar el menú móvil automáticamente
             const navLinks = document.querySelectorAll('.nav-link');
