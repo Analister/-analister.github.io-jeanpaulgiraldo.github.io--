@@ -27,11 +27,12 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px; 
+            /* Compensación para que el navbar no tape el título al hacer scroll */
+            scroll-padding-top: 85px; 
         }
 
         body {
-            /* Tipografía Intacta */
+            /* Tipografía Estilo Apple */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -73,7 +74,7 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-brand) 50%, var(--primary-light) 100%);
             color: white;
-            padding: 160px 0 100px;
+            padding: 170px 0 110px;
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
         .name-title {
@@ -104,15 +105,31 @@
             50% { border-color: white; }
         }
 
-        /* Profile Image */
+        /* ----------------------------------------------------------- */
+        /* 🛠️ ESTILOS CORREGIDOS PARA LA IMAGEN DE PERFIL 🛠️ */
+        /* ----------------------------------------------------------- */
         .profile-img {
-            max-width: 280px;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 50%;
+            /* Forzamos el tamaño cuadrado exacto, ignorando Bootstrap */
+            width: 280px !important; 
+            height: 280px !important;
+            
+            /* Crucial: ajusta la foto dentro del cuadrado sin deformarla */
+            object-fit: cover; 
+            
+            /* Crea el círculo perfecto */
+            border-radius: 50%; 
+            
+            /* Estilos visuales: borde blanco y sombra suave */
             border: 5px solid white;
             box-shadow: 0 20px 40px rgba(37, 25, 100, 0.15); 
+            
+            /* Animación suave para el hover */
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Asegura que esté centrada si la columna es ancha */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         .profile-img:hover {
             transform: scale(1.03) translateY(-5px);
@@ -153,7 +170,7 @@
             color: var(--primary-brand);
         }
 
-        /* 🚀 3D Apple Cards (Nuevo UX Limpio) */
+        /* 🚀 3D Apple Cards (Efecto de inclinación estilo Apple TV) */
         .apple-card {
             background: var(--surface-color);
             border-radius: 24px;
@@ -161,33 +178,34 @@
             border: 1px solid rgba(0,0,0,0.02);
             padding: 35px 25px;
             height: 100%;
-            transform-style: preserve-3d;
+            transform-style: preserve-3d; /* Requerido para efecto 3D */
             will-change: transform;
-            transition: box-shadow 0.4s ease;
+            transition: box-shadow 0.4s ease, transform 0.1s ease; /* Transición rápida para tracking */
         }
         .apple-card:hover {
-            /* SOMBRA GRIS LIMPIA NEUTRA - Sin tintes morados apagados */
+            /* Sombra limpia y neutra en el hover */
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1); 
             z-index: 10;
         }
         
         /* Elementos internos "flotan" sobre la tarjeta */
         .apple-card h5, .apple-card p, .skill-badge {
-            transform: translateZ(20px);
+            transform: translateZ(20px); /* Elevación 3D */
             transition: transform 0.3s ease;
         }
         .card-icon {
             font-size: 2.5rem;
             color: var(--primary-brand);
             margin-bottom: 20px;
-            transform: translateZ(40px); 
+            transform: translateZ(40px); /* Mayor elevación */
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-block;
         }
         .apple-card:hover .card-icon {
             transform: translateZ(50px) scale(1.1);
         }
 
-        /* 🌟 BADGES SKILLS (Color Azul Vivo) */
+        /* 🌟 BADGES SKILLS (Color Azul Vivo Vibrante al Hover) */
         .skill-badge {
             background-color: #f5f5f7;
             color: var(--primary-brand);
@@ -202,10 +220,9 @@
         }
         
         .skill-badge:hover {
-            /* Cambiado al Azul Vivo Vibrante */
-            background-color: var(--accent-vivid); 
+            background-color: var(--accent-vivid); /* Azul Vivo Brillante */
             color: white;
-            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.3); /* Sombra azul brillante */
+            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.3); /* Sombra azul */
             transform: translateZ(30px) translateY(-3px) scale(1.05); 
         }
 
@@ -219,7 +236,7 @@
             color: var(--primary-dark);
         }
 
-        /* Listas y textos */
+        /* Listas y textos de ayuda */
         .text-muted-apple { color: var(--text-muted) !important; }
         .text-brand { color: var(--primary-brand) !important; }
         
@@ -230,7 +247,7 @@
         }
         .cert-list li:last-child { border-bottom: none; }
 
-        /* Animaciones JS */
+        /* Animaciones de aparición al hacer scroll (Reveal) */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -307,7 +324,7 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-5 text-center mb-5 mb-lg-0 reveal">
-                    <img src="Jeanpaulgiraldo.png"> alt="Jean Paul Giraldo" class="img-fluid profile-img">
+                    <img src="Jeanpaulgiraldo.png" alt="Jean Paul Giraldo" class="profile-img">
                 </div>
                 <div class="col-lg-7 reveal" style="transition-delay: 0.1s;">
                     <h3 class="fw-bold mb-4" style="font-size: 2rem; letter-spacing: -0.02em; color: var(--primary-dark);">Bridging the gap between code, design, and data.</h3>
@@ -337,6 +354,7 @@
             <div class="row g-4">
                 <div class="col-md-4 reveal" style="transition-delay: 0.1s;">
                     <div class="apple-card">
+                        <i class="fas fa-code card-icon"></i>
                         <h5 class="fw-bold mb-4 text-brand">Languages & Frameworks</h5>
                         <div>
                             <span class="skill-badge">C#</span><span class="skill-badge">Python</span>
@@ -349,6 +367,7 @@
                 </div>
                 <div class="col-md-4 reveal" style="transition-delay: 0.2s;">
                     <div class="apple-card">
+                        <i class="fas fa-server card-icon"></i>
                         <h5 class="fw-bold mb-4 text-brand">Data & Infrastructure</h5>
                         <div>
                             <span class="skill-badge">Advanced SQL</span><span class="skill-badge">ETL / ELT</span>
@@ -359,6 +378,7 @@
                 </div>
                 <div class="col-md-4 reveal" style="transition-delay: 0.3s;">
                     <div class="apple-card">
+                        <i class="fas fa-lightbulb card-icon"></i>
                         <h5 class="fw-bold mb-4 text-brand">Design & Strategy</h5>
                         <div>
                             <span class="skill-badge">UI/UX Design</span><span class="skill-badge">Generative AI</span>
@@ -428,7 +448,8 @@
                 </div>
                 <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
                     <h2 class="section-title text-start mb-5">Certifications.</h2>
-                    <div class="apple-card p-4" style="transform: none !important;"> <div class="row">
+                    <div class="apple-card p-4" style="transform: none !important;"> 
+                        <div class="row">
                             <div class="col-sm-6">
                                 <ul class="list-unstyled cert-list mb-0">
                                     <li class="fw-bold text-brand"><i class="fas fa-shield-alt me-2"></i>AWS Cloud Security</li>
@@ -477,6 +498,7 @@
             const typeWriterElement = document.getElementById('typewriter');
             
             function typingEffect() {
+                if (!typeWriterElement) return;
                 let word = words[i].split("");
                 var loopTyping = function() {
                     if (word.length > 0) {
@@ -491,6 +513,7 @@
             }
 
             function deletingEffect() {
+                if (!typeWriterElement) return;
                 let word = words[i].split("");
                 var loopDeleting = function() {
                     if (word.length > 0) {
@@ -508,32 +531,34 @@
             setTimeout(typingEffect, 1000); // Inicia tras 1 segundo
 
             // 2. Tarjetas 3D (Hover Tilt effect - Estilo Apple TV)
+            // Seleccionamos solo las tarjetas que no tengan el estilo de "transform: none" forzado
             const cards = document.querySelectorAll('.apple-card:not([style*="transform: none"])');
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
+                    const x = e.clientX - rect.left; // posición x dentro del elemento
+                    const y = e.clientY - rect.top;  // posición y dentro del elemento
                     
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
                     
-                    // Cálculo matemático de los grados de inclinación
-                    const rotateX = ((y - centerY) / centerY) * -6; // Máximo 6 grados
+                    // Cálculo matemático de los grados de inclinación (Tilt)
+                    // Multiplicamos por la intensidad deseada (ej: -6 y 6 grados max)
+                    const rotateX = ((y - centerY) / centerY) * -6; 
                     const rotateY = ((x - centerX) / centerX) * 6;
                     
-                    card.style.transition = 'none'; // Quitar transición suave durante el tracking
+                    card.style.transition = 'none'; // Quitar transición suave durante el tracking del mouse
                     card.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
                 });
                 
                 card.addEventListener('mouseleave', () => {
-                    // Resetear la rotación con una transición suave
+                    // Resetear la rotación con una transición suave al salir
                     card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease';
                     card.style.transform = 'perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)';
                 });
             });
 
-            // 3. Navbar Glassmorphism Dinámico
+            // 3. Navbar Glassmorphism Dinámico (Cambia al hacer scroll)
             const navbar = document.getElementById('mainNav');
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
@@ -543,20 +568,19 @@
                 }
             });
 
-            
+            // 4. Animaciones de aparición (Reveal on Scroll)
             const revealElements = document.querySelectorAll(".reveal");
             
             const revealOptions = {
                 threshold: 0.15, // Se activa cuando el 15% del elemento ya es visible
-                rootMargin: "0px 0px -50px 0px" // Margen de activación
+                rootMargin: "0px 0px -50px 0px" // Margen inferior para activar un poco antes
             };
 
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("active");
-                        // Importante: dejamos de observar el elemento una vez que ya apareció
-                        // Esto libera muchísima memoria RAM del navegador
+                        // Dejamos de observar una vez que ya apareció para ahorrar recursos
                         observer.unobserve(entry.target); 
                     }
                 });
@@ -566,20 +590,23 @@
                 revealOnScroll.observe(el);
             });
 
-            // 5. Cerrar el menú móvil automáticamente
+            // 5. Cerrar el menú móvil automáticamente al hacer clic en un enlace
             const navLinks = document.querySelectorAll('.nav-link');
             const menuToggle = document.getElementById('navbarNav');
-            const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
-            navLinks.forEach((l) => {
-                l.addEventListener('click', () => {
-                    if (menuToggle.classList.contains('show')) {
-                        bsCollapse.toggle();
-                    }
+            if (menuToggle && bootstrap.Collapse) {
+                const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+                navLinks.forEach((l) => {
+                    l.addEventListener('click', () => {
+                        if (menuToggle.classList.contains('show')) {
+                            bsCollapse.toggle();
+                        }
+                    });
                 });
-            });
+            }
 
-            // 6. Año Footer
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            // 6. Año Footer Automático
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
         });
     </script>
 </body>
