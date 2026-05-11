@@ -238,30 +238,13 @@
         .social-link { width: 50px; height: 50px; line-height: 48px; display: inline-block; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); color: white; font-size: 1.2rem; transition: all 0.3s ease; text-decoration: none; margin: 0 10px; }
         .social-link:hover { background-color: white; color: var(--primary-brand); transform: scale(1.1); }
         
-        /* ----------------------------------------------------------- */
-        /* FIX DEFINITIVO PARA LA HAMBURGUESA EN MÓVIL */
-        /* ----------------------------------------------------------- */
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-        }
-        
-        .navbar-toggler {
-            border: none !important;
-            box-shadow: none !important;
-            padding: 5px 0;
-        }
-        
-        .navbar-toggler:focus, .navbar-toggler:active {
-            outline: none !important;
-            box-shadow: none !important;
-        }
     </style>
 </head>
 <body>
 
     <div class="custom-cursor" id="customCursor"></div>
 
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand hover-target" href="#">Jean Paul Giraldo</a>
             <button class="navbar-toggler border-0 hover-target" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -272,7 +255,6 @@
                     <li class="nav-item"><a class="nav-link hover-target" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link hover-target" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link hover-target" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link hover-target" href="#visual-heritage">Design</a></li>
                     <li class="nav-item"><a class="nav-link hover-target" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link hover-target" href="#contact">Contact</a></li>
                 </ul>
@@ -317,7 +299,7 @@
                         Undergraduate Software Engineering student at Institución Universitaria Pascual Bravo.
                     </p>
                     <p class="mb-4 escribir-automatico">
-                        Mi metodología de ingeniería es visual por naturaleza. Con un trasfondo en Diseño Gráfico, aplico principios de jerarquía y composición en la arquitectura de flujos de datos y modelos SQL, asegurando que la información sea siempre clara, accionable y estructurada. Especializado en Business Intelligence y arquitecturas Cloud seguras.
+                        I build robust digital experiences by combining development, UI/UX design, and strategic e-commerce branding. I am specializing in Data Quality within Business Intelligence (BI) and Data Science, utilizing advanced SQL and secure data infrastructure.
                     </p>
 
                     <div class="apple-card mt-4 border-start border-4 hover-target" style="border-color: var(--primary-brand) !important; padding: 25px; transform: none !important;">
@@ -411,67 +393,6 @@
                         <p class="small mb-0">Built a fully functional desktop application with GUI and backend.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="visual-heritage" class="py-5" style="background-color: #f8f9fa;">
-        <div class="container py-5">
-            <h2 class="section-title reveal">Visual Heritage.</h2>
-            <p class="text-center text-muted mb-5 reveal">El origen de mi estructura lógica: del diseño editorial a la arquitectura de datos.</p>
-            
-            <div class="row g-4">
-                <div class="col-lg-8 reveal-left">
-                    <div class="apple-card p-0 overflow-hidden hover-target" style="height: 400px;">
-                        <div class="row h-100 g-0">
-                            <div class="col-6 bg-dark d-flex align-items-center justify-content-center">
-                                <i class="fas fa-pen-nib fa-5x text-white opacity-25"></i>
-                            </div>
-                            <div class="col-6 p-4 d-flex flex-column justify-content-center">
-                                <span class="badge bg-primary mb-2" style="width: fit-content;">Branding</span>
-                                <h4 class="fw-bold">Identidad Visual</h4>
-                                <p class="small text-muted">Creación de logotipos, manuales de marca y sistemas de identidad técnica en 2021.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 reveal-right">
-                    <div class="apple-card p-4 hover-target d-flex flex-column justify-content-between" style="height: 400px; background: var(--primary-brand); color: white;">
-                        <div>
-                            <span class="badge bg-light text-dark mb-2">Editorial</span>
-                            <h4 class="fw-bold">Diseño de Revista</h4>
-                            <p class="small opacity-75">Layouts complejos y jerarquía de información aplicada a medios impresos.</p>
-                        </div>
-                        <i class="fas fa-book-open fa-4x opacity-25 align-self-end"></i>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4 reveal-scale">
-                    <div class="apple-card hover-target">
-                        <i class="fas fa-camera card-icon"></i>
-                        <h5 class="fw-bold">Fotografía & Retoque</h5>
-                        <p class="small text-muted">Tratamiento de imagen profesional y fotomontaje publicitario avanzado.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-lg-8 reveal-scale" style="transition-delay: 0.2s;">
-                    <div class="apple-card hover-target border-start border-primary border-4">
-                        <div class="d-flex align-items-center gap-4">
-                            <i class="fas fa-chart-pie fa-3x text-brand"></i>
-                            <div>
-                                <h5 class="fw-bold">Infografía Educativa</h5>
-                                <p class="small text-muted mb-0">Síntesis visual de datos complejos. Aquí es donde mi perfil de diseñador se conecta directamente con el de analista de Business Intelligence.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-5 reveal">
-                <a href="PORTAFOLIO 2021.pdf" target="_blank" class="btn-apple-secondary hover-target" style="color: var(--primary-brand); border-color: var(--primary-brand);">
-                    <i class="fas fa-file-pdf me-2"></i> Ver Portafolio Gráfico Completo (PDF)
-                </a>
             </div>
         </div>
     </section>
