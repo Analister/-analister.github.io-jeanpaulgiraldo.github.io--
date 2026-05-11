@@ -24,22 +24,28 @@
             --accent-vivid: #0071e3; 
         }
 
-        html {
-            scroll-padding-top: 85px; 
-        }
-
-        body {
+        /* FIX: Prevenir scroll horizontal y espacio blanco en móviles */
+        html, body {
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+            scroll-padding-top: 85px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
             cursor: none; 
+            position: relative;
         }
 
         a, button, .nav-link, .apple-card, .skill-badge {
             cursor: none !important;
+        }
+
+        /* Desactivar cursor magnético en móviles (táctiles) para evitar bugs de desbordamiento */
+        @media (hover: none) and (pointer: coarse) {
+            .custom-cursor { display: none !important; }
+            * { cursor: auto !important; }
         }
         
         /* ----------------------------------------------------------- */
@@ -113,7 +119,7 @@
             animation: gradientLiquid 12s ease infinite;
             color: white;
             padding: 180px 0 130px;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 0 100%);
             position: relative;
         }
 
@@ -141,8 +147,6 @@
             text-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
         
-        @media (max-width: 768px) { .name-title { font-size: 2.5rem; } }
-        
         .hero-subtitle { font-size: 1.5rem; color: rgba(255, 255, 255, 0.85); font-weight: 400; max-width: 800px; margin: 0 auto; letter-spacing: -0.015em; height: 70px; }
 
         #hero-buttons { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -166,14 +170,17 @@
         }
 
         /* ----------------------------------------------------------- */
-        /* CINTA DE TEXTO INFINITA */
+        /* CINTA DE TEXTO INFINITA (AJUSTADA PARA CERRAR HUECOS BLANCOS) */
         /* ----------------------------------------------------------- */
         .marquee-wrapper {
             background-color: var(--primary-brand);
             color: rgba(255, 255, 255, 0.9);
             padding: 15px 0;
             overflow: hidden;
-            transform: rotate(-2deg) scale(1.05) translateY(-50px);
+            width: 110vw; /* Ancho extra para que al rotar no se vean bordes */
+            margin-left: -5vw; /* Centrar el desborde */
+            transform: rotate(-3deg) scale(1.05); /* Rotar y escalar un poco */
+            margin-top: -60px; /* Superponer al hero-section */
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             position: relative;
             z-index: 5;
@@ -237,13 +244,23 @@
         footer { background-color: var(--primary-dark); color: white; border-top: 1px solid rgba(0,0,0,0.05); }
         .social-link { width: 50px; height: 50px; line-height: 48px; display: inline-block; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); color: white; font-size: 1.2rem; transition: all 0.3s ease; text-decoration: none; margin: 0 10px; }
         .social-link:hover { background-color: white; color: var(--primary-brand); transform: scale(1.1); }
-        
+
         /* ----------------------------------------------------------- */
-        /* FIX HAMBURGUESA RESPONSIVE */
+        /* MEDIA QUERIES PARA MÓVILES (FIX HAMBURGUESA Y TEXTOS) */
+        /* ----------------------------------------------------------- */
+        @media (max-width: 768px) {
+            .navbar { padding: 8px 0; }
+            .name-title { font-size: 2.2rem; margin-bottom: 10px; }
+            .hero-subtitle { font-size: 1.2rem; height: auto; min-height: 60px; }
+            .hero-section { padding: 130px 0 90px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%); }
+        }
+
+        /* ----------------------------------------------------------- */
+        /* FIX HAMBURGUESA RESPONSIVE ESTRICTO */
         /* ----------------------------------------------------------- */
         .navbar-toggler {
             border: none !important;
-            padding: 5px !important;
+            padding: 0.2rem 0.5rem !important; /* Espaciado más pequeño */
             box-shadow: none !important;
         }
         .navbar-toggler:focus, .navbar-toggler:active {
@@ -251,9 +268,9 @@
             box-shadow: none !important;
         }
         .navbar-toggler-icon {
-            width: 30px !important;
-            height: 30px !important;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+            width: 1.5rem !important; /* Tamaño fijo, no escala gigante */
+            height: 1.5rem !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
             background-size: 100% !important;
             display: inline-block;
         }
@@ -622,13 +639,15 @@
 
             // 6. Navbar Glassmorphism
             const navbar = document.getElementById('mainNav');
-            window.addEventListener('scroll', function() {
+            function handleNavbarScroll() {
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
-            });
+            }
+            window.addEventListener('scroll', handleNavbarScroll);
+            handleNavbarScroll();
 
             // ----------------------------------------------------------
             // 7. ANIMACIONES DE APARICIÓN
