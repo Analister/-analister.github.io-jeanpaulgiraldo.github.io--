@@ -34,44 +34,7 @@
             color: var(--text-main);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            cursor: none; 
             position: relative;
-        }
-
-        a, button, .nav-link, .apple-card, .skill-badge {
-            cursor: none !important;
-        }
-
-        /* Desactivar cursor magnético en móviles (táctiles) para evitar bugs de desbordamiento */
-        @media (hover: none) and (pointer: coarse) {
-            .custom-cursor { display: none !important; }
-            * { cursor: auto !important; }
-        }
-        
-        /* ----------------------------------------------------------- */
-        /* 1. CURSOR MAGNÉTICO PERSONALIZADO (EFECTO ENFOQUE) */
-        /* ----------------------------------------------------------- */
-        .custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 15px;
-            height: 15px;
-            background-color: var(--accent-vivid);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, background-color 0.3s, mix-blend-mode 0.3s, border 0.3s;
-            mix-blend-mode: multiply;
-        }
-
-        .custom-cursor.hovered {
-            width: 50px;
-            height: 50px;
-            background-color: transparent; 
-            border: 2px solid var(--accent-vivid); 
-            mix-blend-mode: normal;
         }
 
         /* ----------------------------------------------------------- */
@@ -170,17 +133,17 @@
         }
 
         /* ----------------------------------------------------------- */
-        /* CINTA DE TEXTO INFINITA (AJUSTADA PARA CERRAR HUECOS BLANCOS) */
+        /* CINTA DE TEXTO INFINITA */
         /* ----------------------------------------------------------- */
         .marquee-wrapper {
             background-color: var(--primary-brand);
             color: rgba(255, 255, 255, 0.9);
             padding: 15px 0;
             overflow: hidden;
-            width: 110vw; /* Ancho extra para que al rotar no se vean bordes */
-            margin-left: -5vw; /* Centrar el desborde */
-            transform: rotate(-3deg) scale(1.05); /* Rotar y escalar un poco */
-            margin-top: -60px; /* Superponer al hero-section */
+            width: 110vw; 
+            margin-left: -5vw; 
+            transform: rotate(-3deg) scale(1.05); 
+            margin-top: -60px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             position: relative;
             z-index: 5;
@@ -246,7 +209,7 @@
         .social-link:hover { background-color: white; color: var(--primary-brand); transform: scale(1.1); }
 
         /* ----------------------------------------------------------- */
-        /* MEDIA QUERIES PARA MÓVILES (FIX HAMBURGUESA Y TEXTOS) */
+        /* MEDIA QUERIES PARA MÓVILES */
         /* ----------------------------------------------------------- */
         @media (max-width: 768px) {
             .navbar { padding: 8px 0; }
@@ -260,7 +223,7 @@
         /* ----------------------------------------------------------- */
         .navbar-toggler {
             border: none !important;
-            padding: 0.2rem 0.5rem !important; /* Espaciado más pequeño */
+            padding: 0.2rem 0.5rem !important; 
             box-shadow: none !important;
         }
         .navbar-toggler:focus, .navbar-toggler:active {
@@ -268,7 +231,7 @@
             box-shadow: none !important;
         }
         .navbar-toggler-icon {
-            width: 1.5rem !important; /* Tamaño fijo, no escala gigante */
+            width: 1.5rem !important; 
             height: 1.5rem !important;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
             background-size: 100% !important;
@@ -278,21 +241,19 @@
 </head>
 <body>
 
-    <div class="custom-cursor" id="customCursor"></div>
-
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" data-bs-theme="dark">
         <div class="container">
-            <a class="navbar-brand hover-target" href="#">Jean Paul Giraldo</a>
-            <button class="navbar-toggler border-0 hover-target" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="#">Jean Paul Giraldo</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link hover-target" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link hover-target" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link hover-target" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link hover-target" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link hover-target" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -300,7 +261,7 @@
 
     <section class="hero-section text-center">
         <div class="container reveal">
-            <h1 class="name-title hover-target" id="main-title-type"></h1>
+            <h1 class="name-title" id="main-title-type"></h1>
             
             <h2 class="hero-subtitle mb-5">
                 Data & Product Engineer. <br> 
@@ -309,8 +270,8 @@
             </h2>
             
             <div id="hero-buttons" class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
-                <a href="#projects" class="btn-apple-primary hover-target">View Portfolio</a>
-                <a href="#contact" class="btn-apple-secondary hover-target">Contact Me</a>
+                <a href="#projects" class="btn-apple-primary">View Portfolio</a>
+                <a href="#contact" class="btn-apple-secondary">Contact Me</a>
             </div>
         </div>
     </section>
@@ -326,7 +287,7 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-5 text-center mb-5 mb-lg-0 reveal-left">
-                    <img src="Jeanpaulgiraldo.png" alt="Jean Paul Giraldo" class="profile-img hover-target" id="parallax-img">
+                    <img src="Jeanpaulgiraldo.png" alt="Jean Paul Giraldo" class="profile-img" id="parallax-img">
                 </div>
                 <div class="col-lg-7 reveal-right" style="transition-delay: 0.1s;">
                     <h3 class="fw-bold mb-4" style="font-size: 2rem; letter-spacing: -0.02em; color: var(--primary-dark);">Bridging the gap between code, design, and data.</h3>
@@ -338,7 +299,7 @@
                         I build robust digital experiences by combining development, UI/UX design, and strategic e-commerce branding. I am specializing in Data Quality within Business Intelligence (BI) and Data Science, utilizing advanced SQL and secure data infrastructure.
                     </p>
 
-                    <div class="apple-card mt-4 border-start border-4 hover-target" style="border-color: var(--primary-brand) !important; padding: 25px; transform: none !important;">
+                    <div class="apple-card mt-4 border-start border-4" style="border-color: var(--primary-brand) !important; padding: 25px; transform: none !important;">
                         <h5 class="fw-bold mb-3 text-brand"><i class="fas fa-crosshairs me-2"></i> Current Focus</h5>
                         <div class="row">
                             <div class="col-sm-6 mb-2"><i class="fas fa-check text-brand me-2"></i>AWS Cloud Security</div>
@@ -357,35 +318,35 @@
             <h2 class="section-title reveal">Technical Arsenal.</h2>
             <div class="row g-4">
                 <div class="col-md-4 reveal" style="transition-delay: 0.1s;">
-                    <div class="apple-card hover-target">
+                    <div class="apple-card">
                         <i class="fas fa-code card-icon"></i>
                         <h5 class="fw-bold mb-4 text-brand">Languages</h5>
                         <div>
-                            <span class="skill-badge hover-target">C#</span><span class="skill-badge hover-target">Python</span>
-                            <span class="skill-badge hover-target">JavaScript</span><span class="skill-badge hover-target">React</span>
-                            <span class="skill-badge hover-target">Java</span><span class="skill-badge hover-target">Android</span>
-                            <span class="skill-badge hover-target">C++</span><span class="skill-badge hover-target">Kotlin</span>
+                            <span class="skill-badge">C#</span><span class="skill-badge">Python</span>
+                            <span class="skill-badge">JavaScript</span><span class="skill-badge">React</span>
+                            <span class="skill-badge">Java</span><span class="skill-badge">Android</span>
+                            <span class="skill-badge">C++</span><span class="skill-badge">Kotlin</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 reveal" style="transition-delay: 0.2s;">
-                    <div class="apple-card hover-target">
+                    <div class="apple-card">
                         <i class="fas fa-server card-icon"></i>
                         <h5 class="fw-bold mb-4 text-brand">Infrastructure</h5>
                         <div>
-                            <span class="skill-badge hover-target">Advanced SQL</span><span class="skill-badge hover-target">ETL / ELT</span>
-                            <span class="skill-badge hover-target">Cloud Computing</span><span class="skill-badge hover-target">Kubernetes</span>
-                            <span class="skill-badge hover-target">Arduino</span>
+                            <span class="skill-badge">Advanced SQL</span><span class="skill-badge">ETL / ELT</span>
+                            <span class="skill-badge">Cloud Computing</span><span class="skill-badge">Kubernetes</span>
+                            <span class="skill-badge">Arduino</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 reveal" style="transition-delay: 0.3s;">
-                    <div class="apple-card hover-target">
+                    <div class="apple-card">
                         <i class="fas fa-lightbulb card-icon"></i>
                         <h5 class="fw-bold mb-4 text-brand">Strategy</h5>
                         <div>
-                            <span class="skill-badge hover-target">UI/UX Design</span><span class="skill-badge hover-target">Generative AI</span>
-                            <span class="skill-badge hover-target">E-commerce</span><span class="skill-badge hover-target">Cybersecurity</span>
+                            <span class="skill-badge">UI/UX Design</span><span class="skill-badge">Generative AI</span>
+                            <span class="skill-badge">E-commerce</span><span class="skill-badge">Cybersecurity</span>
                         </div>
                     </div>
                 </div>
@@ -398,7 +359,7 @@
             <h2 class="section-title reveal">Featured Projects.</h2>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3 reveal-scale" style="transition-delay: 0.1s;">
-                    <div class="apple-card text-center hover-target">
+                    <div class="apple-card text-center">
                         <i class="fas fa-database card-icon"></i>
                         <h5 class="fw-bold mb-2">Alumni DB System</h5>
                         <p class="text-muted-apple small mb-3">BD_Gestiondeengresados</p>
@@ -406,7 +367,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 reveal-scale" style="transition-delay: 0.2s;">
-                    <div class="apple-card text-center hover-target">
+                    <div class="apple-card text-center">
                         <i class="fas fa-chart-line card-icon"></i>
                         <h5 class="fw-bold mb-2">Automotive Mktg</h5>
                         <p class="text-muted-apple small mb-3">Digital Analytics</p>
@@ -414,7 +375,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 reveal-scale" style="transition-delay: 0.3s;">
-                    <div class="apple-card text-center hover-target">
+                    <div class="apple-card text-center">
                         <i class="fas fa-leaf card-icon"></i>
                         <h5 class="fw-bold mb-2">Zero Waste App</h5>
                         <p class="text-muted-apple small mb-3">UI/UX & Design Sprint</p>
@@ -422,7 +383,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 reveal-scale" style="transition-delay: 0.4s;">
-                    <div class="apple-card text-center hover-target">
+                    <div class="apple-card text-center">
                         <i class="fas fa-window-maximize card-icon"></i>
                         <h5 class="fw-bold mb-2">C# CRUD App</h5>
                         <p class="text-muted-apple small mb-3">Software Engineering</p>
@@ -451,7 +412,7 @@
                 </div>
                 <div class="col-lg-6 reveal-right" style="transition-delay: 0.2s;">
                     <h2 class="section-title text-start mb-5">Certifications.</h2>
-                    <div class="apple-card p-4 hover-target" style="transform: none !important;"> 
+                    <div class="apple-card p-4" style="transform: none !important;"> 
                         <div class="row">
                             <div class="col-sm-6">
                                 <ul class="list-unstyled cert-list mb-0">
@@ -481,9 +442,9 @@
             <h2 class="fw-bold mb-4">Let's build something great.</h2>
             <p class="text-light opacity-75 mb-4">Open to opportunities in Software Engineering, Data Science, and UI/UX design.</p>
             <div class="d-flex justify-content-center mb-5">
-                <a href="https://www.linkedin.com/in/jean-paul-giraldo-6b59a5275/" target="_blank" class="social-link hover-target"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/Jeanpaulgiraldo" target="_blank" class="social-link hover-target"><i class="fab fa-github"></i></a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=analisisjeanpaul@gmail.com" target="_blank" class="social-link hover-target"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/jean-paul-giraldo-6b59a5275/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Jeanpaulgiraldo" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=analisisjeanpaul@gmail.com" target="_blank" class="social-link"><i class="fas fa-envelope"></i></a>
             </div>
             <p class="small text-light opacity-50 mb-0">&copy; <span id="currentYear"></span> Jean Paul Giraldo. All rights reserved.</p>
         </div>
@@ -524,22 +485,6 @@
                     const speed = 0.05; 
                     parallaxImg.style.transform = `translateY(${e.scroll * speed}px)`;
                 }
-            });
-
-            // ----------------------------------------------------------
-            // 3. CURSOR MAGNÉTICO
-            // ----------------------------------------------------------
-            const cursor = document.getElementById('customCursor');
-            const hoverTargets = document.querySelectorAll('.hover-target');
-
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-            });
-
-            hoverTargets.forEach(target => {
-                target.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-                target.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
             });
 
             // ----------------------------------------------------------
